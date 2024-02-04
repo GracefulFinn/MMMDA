@@ -43,11 +43,9 @@ settings_rd={
     "bs":128,
     "set_index":6
 }
-
 settings=settings_3
 dataset='data_hmdd3.2'
 alldata,mirna_id,disease_id,graph_without_asso=get_data(dataset)
-
 
 def train_model(train_loader, model, optimizer,num_epochs):
     train_result=[]
