@@ -44,8 +44,8 @@ settings_rd={
     "set_index":6
 }
 
-settings=settings_rd
-dataset='data_rnadisease'
+settings=settings_3
+dataset='data_hmdd3.2'
 alldata,mirna_id,disease_id,graph_without_asso=get_data(dataset)
 
 def test_model( val_loader, model):
