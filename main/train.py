@@ -1,9 +1,8 @@
-import pandas as pd
 import numpy as np
 import copy
 import torch
-import csv
 import datetime
+import argparse
 from model import Model
 from util import *
 import torch_geometric.transforms as T
@@ -43,8 +42,17 @@ settings_rd={
     "bs":128,
     "set_index":6
 }
-settings=settings_3
-dataset='data_hmdd3.2'
+parser = argparse.ArgumentParser()
+parser.add_argument('--dataset', type=str, default='data_hmdd3.2')
+dataset = parser.parse_args().dataset
+
+if dataset=='data_hmdd3.2':
+    settings=settings_3
+elif dataset=='data_hmdd4':
+    settings=settings_4
+elif dataset=='data_rnadisease':
+    settings=settings_rd
+
 alldata,mirna_id,disease_id,graph_without_asso=get_data(dataset)
 
 def train_model(train_loader, model, optimizer,num_epochs):
